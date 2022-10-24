@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Trail list</h1>
+{% for trail in trails %}
+<div class="card">
+    <div class="cared-content">
+        <span class="card-title">{{ trail.name}}</span>
+        <p>Terrian:{{trail.terrian}}</p>
+        <p>Description:{{trail.description}}</p>
+        {%if trail.lenght > 13 %}
+        <p>Lenght: {{ trail.lenght}}</p>
+        <p> Hint: Sholud preaperd for sleep over night</p>
+        {% else %}
+        <p>Hint: Short one day hiking</p>
+        <p>Lenght: {{ trail.lenght}}</p>
+            
+        {% endif %}
+
+
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
