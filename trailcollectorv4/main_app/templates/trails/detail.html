@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Trail list</h1>
-{% for trail in trails %}
+<h1>Trail Details</h1>
+
 <div class="card">
-    <a href="{% url 'detail' trail.id %}">
+    
     <div class="cared-content">
         <span class="card-title">{{ trail.name}}</span>
         <p>Terrian:{{trail.terrian}}</p>
@@ -19,7 +19,6 @@
 
 
     </div>
-</a>
+
 </div>
-{% endfor %}
 {% endblock %}
