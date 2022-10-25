@@ -19,6 +19,9 @@
 
 
     </div>
-
+<div class="card-action">
+    <a href="{% url 'trails_update' trail.id%}">Edit</a>
+    <a href="{% url 'trails_delete' trail.id%}">Delete</a>
+</div>
 </div>
 {% endblock %}
