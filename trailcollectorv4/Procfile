@@ -1,1 +1,1 @@
-web: gunicorn trailcollector4.wsgi
+web: gunicorn trailcollectorv4.wsgi
