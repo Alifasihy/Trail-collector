@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Trail Details</h1>
-
+<div class="row">
+    <div class="col s6">
 <div class="card">
     
     <div class="cared-content">
@@ -17,11 +18,43 @@
             
         {% endif %}
 
-
     </div>
 <div class="card-action">
     <a href="{% url 'trails_update' trail.id%}">Edit</a>
     <a href="{% url 'trails_delete' trail.id%}">Delete</a>
 </div>
 </div>
+    </div>
+    <div class="col s6">
+        <form action="{% url 'add_maintaining' trail.id %}"method="post">
+            {% csrf_token %}
+            {{ maintaining_form.as_p }}
+            <input type="submit" class="btn" value="Add Maintaining">
+          </form>
+        <table class="striped">
+        </thead>
+        <tr><th>Date</th><th>Task</th></tr>
+        <tbody>
+            {%for maintaining in trail.maintaining_set.all %}
+            <tr>
+                <td>{{maintaining.date}}</td>
+                <td>{{maintaining.get_task_display}}</td>
+    
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+<script>
+var dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+  var selectEl = document.getElementById('id_task');
+  M.FormSelect.init(selectEl);
+</script>
 {% endblock %}

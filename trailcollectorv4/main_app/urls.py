@@ -9,4 +9,5 @@ path('trails/<int:trail_id>/', views.trails_detail, name='detail'),
 path('trails/create/',views.TrailCreate.as_view(), name='trails_create'),
 path('trails/<int:pk>/update/', views.TrailUpdate.as_view(), name= 'trails_update'),
 path('trails/<int:pk>/delete/', views.TrailDelete.as_view(), name = 'trails_delete'),
+path('trails/<int:trail_id>/add_maintaining/', views.add_maintaining, name='add_maintaining')
 ]
